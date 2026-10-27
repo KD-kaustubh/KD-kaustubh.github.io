@@ -322,6 +322,10 @@ pre.code{margin:0;padding:12px 14px;font:400 11.5px/1.7 var(--mono);color:var(--
 .contact-links{margin-top:28px;display:flex;flex-wrap:wrap;gap:28px;font-size:15px}
 .foot{margin-top:clamp(80px,10vw,140px);padding-top:24px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;font:400 12.5px var(--mono);color:var(--muted-2)}
 .foot a:hover{color:var(--ink)}
+.views{display:inline-flex;align-items:center;gap:8px;animation:stepIn .5s var(--ease) both}
+.views[hidden]{display:none}
+.views i{width:6px;height:6px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 3px var(--lime-dim)}
+.views b{font-weight:500;color:var(--ink-2)}
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width:1080px){
@@ -373,7 +377,7 @@ pre.code{margin:0;padding:12px 14px;font:400 11.5px/1.7 var(--mono);color:var(--
   html{scroll-behavior:auto}
   [data-reveal]{opacity:1;transform:none;transition:none}
   .xfade>[data-scene]{transition:none}
-  .stage.anim .scene.is-on .step,.stage.anim .scene.is-on .ui-bar i,.idx.anim .proj:not([hidden]){animation:none}
+  .stage.anim .scene.is-on .step,.stage.anim .scene.is-on .ui-bar i,.idx.anim .proj:not([hidden]),.views{animation:none}
   .peek{display:none}
 }
 </style>
@@ -890,6 +894,7 @@ answer = llm.explain(result)
       <footer class="foot">
         <span>© <span id="year">2026</span> Kaustubh Dwivedi</span>
         <span>Software Developer · Full-Stack &amp; AI/ML</span>
+        <span class="views" id="views" hidden><i aria-hidden="true"></i><b id="views-n"></b> views</span>
         <a href="#top">Back to top ↑</a>
       </footer>
     </div>
@@ -902,6 +907,29 @@ answer = llm.explain(result)
 (function(){
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* page-view counter (Abacus) — one hit per browser session, live domain only */
+  (function(){
+    var box = document.getElementById('views'), out = document.getElementById('views-n');
+    if (!box || !window.fetch) return;
+    var API = 'https://abacus.jasoncameron.dev/', KEY = 'kd-kaustubh-github-io/views';
+    var counted = false;
+    try { counted = sessionStorage.getItem('kd-viewed') === '1'; } catch (e) {}
+    var live = location.hostname === 'kd-kaustubh.github.io';
+    var url = API + (live && !counted ? 'hit/' : 'get/') + KEY;
+    var ctl = 'AbortController' in window ? new AbortController() : null;
+    var timer = setTimeout(function(){ if (ctl) ctl.abort(); }, 5000);
+    fetch(url, ctl ? { signal: ctl.signal } : undefined)
+      .then(function(r){ return r.ok ? r.json() : null; })
+      .then(function(d){
+        clearTimeout(timer);
+        if (!d || typeof d.value !== 'number') return;
+        if (live && !counted) { try { sessionStorage.setItem('kd-viewed', '1'); } catch (e) {} }
+        out.textContent = d.value.toLocaleString('en-US');
+        box.hidden = false;
+      })
+      .catch(function(){ clearTimeout(timer); });
+  })();
 
   /* reveal on scroll */
   var els = document.querySelectorAll('[data-reveal]');
