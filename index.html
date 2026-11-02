@@ -232,6 +232,7 @@ pre.code{margin:0;padding:12px 14px;font:400 11.5px/1.7 var(--mono);color:var(--
 .frame-bar em{flex:none;margin-left:auto;font-style:normal;color:var(--muted-2);letter-spacing:.1em;text-transform:uppercase}
 .frame-shot{aspect-ratio:16/10;overflow:hidden;background:#0b0c0d}
 .frame-shot img{width:100%;height:100%;object-fit:cover;object-position:top left;transition:transform .8s var(--ease)}
+.frame-shot video{display:block;width:100%;height:100%;object-fit:cover;object-position:top left}
 .work:hover .frame-shot img{transform:scale(1.025)}
 .frame-shot.zoom img{width:150%;height:150%;max-width:none;transform-origin:top left}
 .work:hover .frame-shot.zoom img{transform:scale(1.02)}
@@ -703,7 +704,7 @@ answer = llm.explain(result)
         <div class="work-copy" data-reveal>
           <div class="work-idx"><b>05</b>AI · RAG</div>
           <h3>IITM BS Degree Assistant</h3>
-          <p>A RAG chatbot for IIT Madras BS students. An LLM router sends each question either to the full course documents or to a ChromaDB search over the handbook. Answers stay grounded in the sources, follow-up questions work, and it falls back automatically across OpenAI, Gemini and Groq.</p>
+          <p>A RAG chatbot for IIT Madras BS students, answering from the Sep 2026 grading document, the latest student handbook and the course documents. An LLM router sends each question to the right course documents or a ChromaDB search, so it can give this term's exam dates and grading formulas for all 57 courses. Answers stay grounded in the sources, follow-up questions work, and it falls back automatically across OpenAI, Gemini and Groq.</p>
           <div class="labels"><span>Python</span><span>LangChain</span><span>ChromaDB</span><span>OpenAI · Gemini · Groq</span><span>Streamlit</span></div>
           <div class="work-links">
             <a class="ulink" href="https://chatbot-rag-a2fhptorpybnshppovni3r.streamlit.app/" target="_blank" rel="noopener">Live demo <svg class="i" viewBox="0 0 24 24"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
@@ -713,7 +714,7 @@ answer = llm.explain(result)
         <div class="mat" style="--tint:#21161a" data-reveal>
           <div class="frame">
             <div class="frame-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>chatbot-rag · streamlit.app<em>Live app</em></div>
-            <div class="frame-shot"><img src="assets/shots/degree.webp" width="1440" height="900" loading="lazy" decoding="async" alt="Screenshot of the live IITM BS Degree Assistant: program overview sidebar, suggested questions and chat input"></div>
+            <div class="frame-shot"><video src="assets/shots/degree-demo.mp4" poster="assets/shots/degree.webp" width="1440" height="900" autoplay muted loop playsinline preload="metadata" aria-label="Demo of the live IITM BS Degree Assistant answering how Maths 1 is graded this term and how NPTEL courses count as credits"></video></div>
           </div>
         </div>
       </article>
@@ -906,6 +907,8 @@ answer = llm.explain(result)
 <script>
 (function(){
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* demo videos stay on their poster frame for visitors who prefer reduced motion */
+  if (reduce) document.querySelectorAll('video[autoplay]').forEach(function(v){ v.removeAttribute('autoplay'); v.pause(); });
   document.getElementById('year').textContent = new Date().getFullYear();
 
   /* page-view counter (Abacus) — one hit per browser session, live domain only */
