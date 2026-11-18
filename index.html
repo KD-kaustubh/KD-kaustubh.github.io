@@ -410,7 +410,7 @@ pre.code{margin:0;padding:12px 14px;font:400 11.5px/1.7 var(--mono);color:var(--
       <div class="hero-copy">
         <span class="kicker" data-reveal>Software Developer · Full-Stack &amp; AI/ML</span>
         <h1 data-reveal style="--rd:80ms">I build software<br>that <span class="serif">ships.</span></h1>
-        <p class="hero-sub" data-reveal style="--rd:160ms">I build full-stack web applications, LLM agents and data products, from Flask and FastAPI backends to Vue front ends and deployed AI tools.</p>
+        <p class="hero-sub" data-reveal style="--rd:160ms">I build full-stack web applications, LLM agents and data products, from Flask, FastAPI and Next.js backends to Vue and React front ends and deployed AI tools.</p>
         <div class="hero-cta" data-reveal style="--rd:240ms">
           <a class="btn btn-lime" href="#work">View selected work
             <svg class="i" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
@@ -574,16 +574,35 @@ answer = llm.explain(result)
     <div class="wrap">
       <div class="sec-head">
         <div>
-          <span class="kicker" data-reveal>Selected work · 06</span>
+          <span class="kicker" data-reveal>Selected work · 07</span>
           <h2 data-reveal style="--rd:80ms">Selected <span class="serif">work</span></h2>
         </div>
-        <p data-reveal style="--rd:160ms">Six flagship builds across full-stack, AI/ML and developer tooling. Where a project is live, the preview is a real screenshot. Private projects are shown as labelled interface mockups.</p>
+        <p data-reveal style="--rd:160ms">Seven flagship builds across full-stack, AI/ML and developer tooling. Where a project is live, the preview is a real screenshot. Private projects are shown as labelled interface mockups.</p>
       </div>
 
       <!-- 01 -->
       <article class="work">
         <div class="work-copy" data-reveal>
-          <div class="work-idx"><b>01</b>AI · Data · Full-Stack</div>
+          <div class="work-idx"><b>01</b>Full-Stack · Payments</div>
+          <h3>PG Manager</h3>
+          <p>Software for running a PG or hostel. Rent and the room's electricity are split by the days each person stayed, tenants pay by UPI through Razorpay, and managers record cash. Move-out works out the deposit refund line by line, and a public page lets new tenants book a visit. Row-level security keeps every PG's data apart.</p>
+          <div class="labels"><span>Next.js 15</span><span>TypeScript</span><span>Supabase</span><span>PostgreSQL · RLS</span><span>Razorpay</span><span>Tailwind</span><span>100+ tests</span></div>
+          <div class="work-links">
+            <a class="ulink" href="https://github.com/KD-kaustubh/pg-manager" target="_blank" rel="noopener">GitHub <svg class="i" viewBox="0 0 24 24"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
+          </div>
+        </div>
+        <div class="mat" style="--tint:#122421;--rd:120ms" data-reveal>
+          <div class="frame">
+            <div class="frame-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>PG Manager · Meter readings<em>App screenshot</em></div>
+            <div class="frame-shot zoom"><img src="assets/shots/pg-manager.webp" width="1440" height="900" loading="lazy" decoding="async" alt="Screenshot of PG Manager's meter readings screen: each room's previous and current reading, the rate per unit, and the electricity bill split between the people who stayed that month"></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 02 -->
+      <article class="work flip">
+        <div class="work-copy" data-reveal>
+          <div class="work-idx"><b>02</b>AI · Data · Full-Stack</div>
           <h3>AI Data Analyst Agent</h3>
           <p>Upload a CSV or XLSX and ask questions in plain English. A bounded agent picks from a fixed set of pandas tools, pandas computes every number, and a grounding check flags any figure the computation doesn't support.</p>
           <div class="labels"><span>FastAPI</span><span>Streamlit</span><span>Pandas</span><span>Groq · Gemini</span><span>Docker</span><span>412 tests</span></div>
@@ -600,10 +619,10 @@ answer = llm.explain(result)
         </div>
       </article>
 
-      <!-- 02 -->
-      <article class="work flip">
+      <!-- 03 -->
+      <article class="work">
         <div class="work-copy" data-reveal>
-          <div class="work-idx"><b>02</b>Full-Stack · Backend <span class="badge badge-private">Private repo</span></div>
+          <div class="work-idx"><b>03</b>Full-Stack · Backend <span class="badge badge-private">Private repo</span></div>
           <h3>Examination Management Portal</h3>
           <p>A role-based portal for slot-based exams like vivas and practicals. Admins set up exams and weighted rubrics, examiners publish slots and evaluate, and students book slots and see their results. V2 is a Vue 3 SPA on a Flask JWT API, with Redis caching and Celery jobs for reminders, reports and CSV exports.</p>
           <div class="labels"><span>Flask</span><span>Vue 3</span><span>JWT</span><span>SQLAlchemy</span><span>Redis</span><span>Celery</span><span>pytest</span></div>
@@ -630,10 +649,10 @@ answer = llm.explain(result)
         </div>
       </article>
 
-      <!-- 03 -->
-      <article class="work">
+      <!-- 04 -->
+      <article class="work flip">
         <div class="work-copy" data-reveal>
-          <div class="work-idx"><b>03</b>Developer tools · AI</div>
+          <div class="work-idx"><b>04</b>Developer tools · AI</div>
           <h3>DevPilot MCP</h3>
           <p>An MCP server that gives an AI model structured, security-conscious access to a repository. It can read and search code, inspect Git and GitHub, gather evidence for questions, apply and revert patches you supply, and run the tests. The optional DevPilot Studio UI shows every tool call live.</p>
           <div class="labels"><span>Python</span><span>MCP</span><span>GitHub API</span><span>pytest</span><span>CI</span></div>
@@ -659,10 +678,10 @@ answer = llm.explain(result)
         </div>
       </article>
 
-      <!-- 04 -->
-      <article class="work flip">
+      <!-- 05 -->
+      <article class="work">
         <div class="work-copy" data-reveal>
-          <div class="work-idx"><b>04</b>MLOps · LLMOps · Backend <span class="badge badge-private">Private repo</span></div>
+          <div class="work-idx"><b>05</b>MLOps · LLMOps · Backend <span class="badge badge-private">Private repo</span></div>
           <h3>GenOps AI</h3>
           <p>A single control plane for ML and LLM workloads in production. It includes a model registry with MLflow lineage, performance and drift monitoring, and LLM request and response evaluation, with latency, errors and cost broken down by model, prompt and team.</p>
           <div class="labels"><span>FastAPI</span><span>PostgreSQL</span><span>MLflow</span><span>Prometheus</span><span>Docker Compose</span></div>
@@ -699,10 +718,10 @@ answer = llm.explain(result)
         </div>
       </article>
 
-      <!-- 05 -->
-      <article class="work">
+      <!-- 06 -->
+      <article class="work flip">
         <div class="work-copy" data-reveal>
-          <div class="work-idx"><b>05</b>AI · RAG</div>
+          <div class="work-idx"><b>06</b>AI · RAG</div>
           <h3>IITM BS Degree Assistant</h3>
           <p>A RAG chatbot for IIT Madras BS students, answering from the Sep 2026 grading document, the latest student handbook and the course documents. An LLM router sends each question to the right course documents or a ChromaDB search, so it can give this term's exam dates and grading formulas for all 57 courses. Answers stay grounded in the sources, follow-up questions work, and it falls back automatically across OpenAI, Gemini and Groq.</p>
           <div class="labels"><span>Python</span><span>LangChain</span><span>ChromaDB</span><span>OpenAI · Gemini · Groq</span><span>Streamlit</span></div>
@@ -719,10 +738,10 @@ answer = llm.explain(result)
         </div>
       </article>
 
-      <!-- 06 -->
-      <article class="work flip">
+      <!-- 07 -->
+      <article class="work">
         <div class="work-copy" data-reveal>
-          <div class="work-idx"><b>06</b>Data · SQL · Analytics</div>
+          <div class="work-idx"><b>07</b>Data · SQL · Analytics</div>
           <h3>Olist Sales Analytics Dashboard</h3>
           <p>An interactive analytics dashboard over the Olist Brazilian e-commerce dataset: 100k+ orders from 2016–2018 across six related tables, joined in PostgreSQL. It covers revenue trends, delivery status, top categories and payment methods.</p>
           <div class="labels"><span>Python</span><span>SQL</span><span>PostgreSQL</span><span>SQLAlchemy</span><span>Plotly Dash</span><span>Render</span></div>
@@ -746,13 +765,13 @@ answer = llm.explain(result)
     <div class="wrap">
       <div class="arch-head">
         <div>
-          <span class="kicker" data-reveal>Archive · 18 projects in total</span>
+          <span class="kicker" data-reveal>Archive · 20 projects in total</span>
           <h2 data-reveal style="--rd:80ms" class="mt">Everything <span class="serif">else</span></h2>
         </div>
         <div class="tabs" role="group" aria-label="Filter projects" data-reveal style="--rd:160ms">
-          <button class="tab is-active" type="button" data-filter="all" aria-pressed="true">All <span>12</span></button>
+          <button class="tab is-active" type="button" data-filter="all" aria-pressed="true">All <span>13</span></button>
           <button class="tab" type="button" data-filter="ai" aria-pressed="false">AI &amp; LLM <span>3</span></button>
-          <button class="tab" type="button" data-filter="web" aria-pressed="false">Full-Stack &amp; Backend <span>4</span></button>
+          <button class="tab" type="button" data-filter="web" aria-pressed="false">Full-Stack &amp; Backend <span>5</span></button>
           <button class="tab" type="button" data-filter="data" aria-pressed="false">Data &amp; ML <span>5</span></button>
         </div>
       </div>
@@ -782,6 +801,11 @@ answer = llm.explain(result)
           <div><h4>Quiz Master <span class="badge badge-live"><i></i>Live</span></h4><p>Quiz platform for admins and students with timed, scheduled quizzes, score tracking and analytics. Protected with CSRF tokens and hashed passwords.</p></div>
           <div class="labels"><span>Flask</span><span>SQLAlchemy</span><span>Jinja2</span><span>Matplotlib</span></div>
           <div class="proj-links"><a class="ulink" href="https://quizmaster-application.onrender.com" target="_blank" rel="noopener">Live</a><a class="ulink" href="https://github.com/KD-kaustubh/Quizmaster_Application" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="proj" data-cat="web">
+          <div><h4>Brain Atlas</h4><p>An interactive 3D atlas of the human brain. Take it apart into 139 selectable structures across 9 regions, hover to name what is under the pointer, and search 308 named concepts.</p></div>
+          <div class="labels"><span>React</span><span>Three.js</span><span>TypeScript</span><span>shadcn/ui</span></div>
+          <div class="proj-links"><a class="ulink" href="https://brain-atlas-ivory.vercel.app/" target="_blank" rel="noopener">Live</a><a class="ulink" href="https://github.com/KD-kaustubh/BRAIN-ATLAS" target="_blank" rel="noopener">GitHub</a></div>
         </article>
         <article class="proj" data-cat="web">
           <div><h4>LLM API Gateway</h4><p>One authenticated, rate-limited API in front of Groq and Gemini, with retries, response caching, usage tracking and Prometheus metrics, shipped in a hardened Docker image.</p></div>
@@ -870,9 +894,9 @@ answer = llm.explain(result)
       <div class="stack-cols">
         <div data-reveal><h3>Languages &amp; Data</h3><ul><li>Python</li><li>SQL</li><li>JavaScript</li><li>TypeScript</li><li>Pandas</li><li>NumPy</li><li>scikit-learn</li></ul></div>
         <div data-reveal style="--rd:70ms"><h3>ML &amp; AI</h3><ul><li>XGBoost</li><li>TensorFlow · Keras</li><li>OpenCV</li><li>LangChain</li><li>FAISS · ChromaDB</li><li>OpenAI · Gemini · Groq</li><li>MCP</li></ul></div>
-        <div data-reveal style="--rd:140ms"><h3>Backend &amp; APIs</h3><ul><li>FastAPI</li><li>Flask</li><li>REST APIs</li><li>SQLAlchemy</li><li>Pydantic</li><li>Celery · Redis</li><li>JWT</li></ul></div>
-        <div data-reveal style="--rd:210ms"><h3>Frontend</h3><ul><li>Vue.js</li><li>React · Next.js</li><li>Streamlit</li><li>Bootstrap</li><li>HTML / CSS</li></ul></div>
-        <div data-reveal style="--rd:280ms"><h3>Data &amp; Infra</h3><ul><li>PostgreSQL</li><li>SQLite</li><li>Docker</li><li>Git · GitHub Actions</li><li>Render · Vercel</li><li>MLflow</li><li>Prometheus</li></ul></div>
+        <div data-reveal style="--rd:140ms"><h3>Backend &amp; APIs</h3><ul><li>FastAPI</li><li>Flask</li><li>REST APIs</li><li>SQLAlchemy</li><li>Pydantic</li><li>Celery · Redis</li><li>JWT</li><li>Razorpay</li></ul></div>
+        <div data-reveal style="--rd:210ms"><h3>Frontend</h3><ul><li>Vue.js</li><li>React · Next.js</li><li>Tailwind CSS</li><li>Streamlit</li><li>Bootstrap</li><li>HTML / CSS</li></ul></div>
+        <div data-reveal style="--rd:280ms"><h3>Data &amp; Infra</h3><ul><li>PostgreSQL</li><li>Supabase</li><li>SQLite</li><li>Docker</li><li>Git · GitHub Actions</li><li>Render · Vercel</li><li>MLflow</li><li>Prometheus</li></ul></div>
       </div>
     </div>
   </section>
